@@ -3,7 +3,6 @@
 #include "component.hpp"
 
 #include <SFML/Audio.hpp>
-
 #include <string>
 #include <memory>
 #include <iostream>

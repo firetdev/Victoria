@@ -3,15 +3,28 @@
 #include <vector>
 #include <memory>
 #include <type_traits>
+#include <string>
 
 class Component;  // Forward declaraction
 
 class Entity {
+private:
+    int id = 1;
+    std::string name = "entity";
+    
 protected:
     std::vector<std::unique_ptr<Component>> components;
 
 public:
+    explicit Entity(const std::string& entityName = "entity")
+            : name(entityName) {}
+    
     virtual ~Entity() = default;
+    
+    int GetId() const { return id; }
+    void SetId(int newId) { id = newId; }
+    std::string GetName() const { return name; }
+    void SetName(const std::string& newName) { name = newName; }
 
     template<typename T, typename... Args>
     T* AddComponent(Args&&... args) {
