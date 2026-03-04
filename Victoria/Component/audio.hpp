@@ -1,12 +1,14 @@
 #pragma once
 
 #include "component.hpp"
+
 #include <SFML/Audio.hpp>
+
 #include <string>
 #include <memory>
 #include <iostream>
 
-class AudioComponent : public Component {
+class AudioPlayer : public Component {
 private:
     std::unique_ptr<sf::Sound> sound;
     std::shared_ptr<sf::SoundBuffer> buffer;
@@ -16,7 +18,7 @@ public:
     float pitch = 1.0f;
     bool looping = false;
 
-    AudioComponent(const std::string& filepath)
+    AudioPlayer(const std::string& filepath)
         : sound(nullptr), buffer(nullptr)
     {
         if (!Load(filepath))

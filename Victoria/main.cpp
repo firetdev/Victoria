@@ -1,4 +1,3 @@
-#include <SFML/Graphics.hpp>
 #include "victoria.hpp"
 
 int main() {
@@ -6,9 +5,9 @@ int main() {
     sf::Clock clock;
     
     Entity player;
-    player.AddComponent<TransformComponent>();
-    player.AddComponent<MovementComponent>();
-    player.GetComponent<MovementComponent>()->retain = 0.2;
+    player.AddComponent<Transform>();
+    player.AddComponent<Motion>();
+    player.GetComponent<Motion>()->retain = 0.2;
     
     sf::CircleShape shape(60.f);
     shape.setFillColor(sf::Color::Green);
@@ -20,16 +19,16 @@ int main() {
                 window.close();
         }
         
-        auto playerMovement = player.GetComponent<MovementComponent>();
+        auto playerMotion = player.GetComponent<Motion>();
         
         if (Input::inputs["w"])
-            playerMovement->velocity.y = -150;
+            playerMotion->velocity.y = -150;
         if (Input::inputs["s"])
-            playerMovement->velocity.y = 150;
+            playerMotion->velocity.y = 150;
         if (Input::inputs["a"])
-            playerMovement->velocity.x = -150;
+            playerMotion->velocity.x = -150;
         if (Input::inputs["d"])
-            playerMovement->velocity.x = 150;
+            playerMotion->velocity.x = 150;
         
         // Get delta time
         sf::Time dt = clock.restart();
@@ -37,7 +36,7 @@ int main() {
         
         player.Update(deltaTime);
         
-        shape.setPosition(sf::Vector2f(player.GetComponent<TransformComponent>()->position.x, player.GetComponent<TransformComponent>()->position.y));
+        shape.setPosition(sf::Vector2f(player.GetComponent<Transform>()->position.x, player.GetComponent<Transform>()->position.y));
 
         window.clear();
         window.draw(shape);

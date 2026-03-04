@@ -4,13 +4,13 @@
 #include "../Entity/entity.hpp"
 #include "../Core/vec2.hpp"
 
-class MovementComponent : public Component {
+class Motion : public Component {
 public:
     Vec2 velocity;
     float retain = 0.0;
     
     void Update(float dt) override {
-        auto transform = owner->GetComponent<TransformComponent>();
+        auto transform = owner->GetComponent<Transform>();
         if (!transform) return;
         
         transform->position.x += velocity.x * dt;
