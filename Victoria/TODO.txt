@@ -1,4 +1,3 @@
 TODO:
--Add sprite
 -Add scenes
 -Add gamemanager

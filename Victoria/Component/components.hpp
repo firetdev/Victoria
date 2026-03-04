@@ -7,3 +7,4 @@
 #include "motion.hpp"
 #include "audio.hpp"
 #include "collisionbox.hpp"
+#include "sprite.hpp"

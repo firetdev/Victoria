@@ -11,7 +11,8 @@ int main() {
     player.AddComponent<CollisionBox>();
     auto pCollider = player.GetComponent<CollisionBox>();
     pCollider->position = {0, 0};
-    pCollider->size = {60, 60};
+    pCollider->size = {64, 64};
+    player.AddComponent<Sprite>("player.png", window);
     
     Entity target;
     target.AddComponent<Transform>();
@@ -19,13 +20,8 @@ int main() {
     target.AddComponent<CollisionBox>();
     auto tCollider = target.GetComponent<CollisionBox>();
     tCollider->position = {0, 0};
-    tCollider->size = {60, 60};
-    
-    sf::CircleShape shape(30.f);
-    shape.setFillColor(sf::Color::Green);
-    
-    sf::CircleShape tShape(30.f);
-    tShape.setFillColor(sf::Color::Red);
+    tCollider->size = {64, 64};
+    target.AddComponent<Sprite>("player.png", window);
 
     while (window.isOpen()) {
         Input::update(window);
@@ -52,15 +48,10 @@ int main() {
         // Get delta time
         sf::Time dt = clock.restart();
         float deltaTime = dt.asSeconds();
-        
-        player.Update(deltaTime);
-        
-        shape.setPosition(sf::Vector2f(player.GetComponent<Transform>()->position.x, player.GetComponent<Transform>()->position.y));
-        tShape.setPosition(sf::Vector2f(target.GetComponent<Transform>()->position.x, target.GetComponent<Transform>()->position.y));
 
         window.clear();
-        window.draw(shape);
-        window.draw(tShape);
+        player.Update(deltaTime);
+        target.Update(deltaTime);
         window.display();
     }
 }
