@@ -1,0 +1,5 @@
+TODO:
+-Add sprite
+-Add collider
+-Add scenes
+-Add gamemanager

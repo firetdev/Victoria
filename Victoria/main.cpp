@@ -1,34 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "victoria.hpp"
 
-class TransformComponent : public Component {
-public:
-    Vec2 position;
-    Vec2 scale;
-};
-
-class MovementComponent : public Component {
-public:
-    Vec2 velocity;
-    float retain = 0.0;
-    
-    void Update(float dt) override {
-        auto transform = owner->GetComponent<TransformComponent>();
-        if (!transform) return;
-        
-        transform->position.x += velocity.x * dt;
-        transform->position.y += velocity.y * dt;
-        
-        velocity *= std::pow(retain, dt);
-        
-        if (abs(velocity.x) < 0.01)
-            velocity.x = 0.0;
-        if (abs(velocity.y) < 0.01)
-            velocity.y = 0.0;
-    }
-};
-
-
 int main() {
     sf::RenderWindow window(sf::VideoMode({600, 600}), "SFML works!");
     sf::Clock clock;

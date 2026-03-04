@@ -139,6 +139,7 @@
 				TargetAttributes = {
 					AB2591AC2F57CFDD001F97BF = {
 						CreatedOnToolsVersion = 26.3;
+						LastSwiftMigration = 2630;
 					};
 				};
 			};
@@ -290,12 +291,15 @@
 		AB2591B52F57CFDD001F97BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/homebrew/Cellar/sfml/3.0.2/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 				SYSTEM_HEADER_SEARCH_PATHS = /opt/homebrew/include/;
 			};
 			name = Debug;
@@ -303,12 +307,14 @@
 		AB2591B62F57CFDD001F97BF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/homebrew/Cellar/sfml/3.0.2/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
 				SYSTEM_HEADER_SEARCH_PATHS = /opt/homebrew/include/;
 			};
 			name = Release;
