@@ -6,6 +6,17 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		AB2591BC2F57D02B001F97BF /* libsfml-system.3.0.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2591B82F57D02B001F97BF /* libsfml-system.3.0.2.dylib */; };
+		AB2591BD2F57D02B001F97BF /* libsfml-system.3.0.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = AB2591B82F57D02B001F97BF /* libsfml-system.3.0.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		AB2591BE2F57D02B001F97BF /* libsfml-audio.3.0.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2591B92F57D02B001F97BF /* libsfml-audio.3.0.2.dylib */; };
+		AB2591BF2F57D02B001F97BF /* libsfml-audio.3.0.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = AB2591B92F57D02B001F97BF /* libsfml-audio.3.0.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		AB2591C02F57D02B001F97BF /* libsfml-graphics.3.0.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2591BA2F57D02B001F97BF /* libsfml-graphics.3.0.2.dylib */; };
+		AB2591C12F57D02B001F97BF /* libsfml-graphics.3.0.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = AB2591BA2F57D02B001F97BF /* libsfml-graphics.3.0.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		AB2591C22F57D02B001F97BF /* libsfml-window.3.0.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2591BB2F57D02B001F97BF /* libsfml-window.3.0.2.dylib */; };
+		AB2591C32F57D02B001F97BF /* libsfml-window.3.0.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = AB2591BB2F57D02B001F97BF /* libsfml-window.3.0.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		AB2591AB2F57CFDD001F97BF /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -16,10 +27,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		AB2591C42F57D02B001F97BF /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AB2591C12F57D02B001F97BF /* libsfml-graphics.3.0.2.dylib in Embed Libraries */,
+				AB2591C32F57D02B001F97BF /* libsfml-window.3.0.2.dylib in Embed Libraries */,
+				AB2591BF2F57D02B001F97BF /* libsfml-audio.3.0.2.dylib in Embed Libraries */,
+				AB2591BD2F57D02B001F97BF /* libsfml-system.3.0.2.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AB2591AD2F57CFDD001F97BF /* Victoria */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Victoria; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB2591B82F57D02B001F97BF /* libsfml-system.3.0.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-system.3.0.2.dylib"; path = "../../../../../opt/homebrew/Cellar/sfml/3.0.2/lib/libsfml-system.3.0.2.dylib"; sourceTree = "<group>"; };
+		AB2591B92F57D02B001F97BF /* libsfml-audio.3.0.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-audio.3.0.2.dylib"; path = "../../../../../opt/homebrew/Cellar/sfml/3.0.2/lib/libsfml-audio.3.0.2.dylib"; sourceTree = "<group>"; };
+		AB2591BA2F57D02B001F97BF /* libsfml-graphics.3.0.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-graphics.3.0.2.dylib"; path = "../../../../../opt/homebrew/Cellar/sfml/3.0.2/lib/libsfml-graphics.3.0.2.dylib"; sourceTree = "<group>"; };
+		AB2591BB2F57D02B001F97BF /* libsfml-window.3.0.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-window.3.0.2.dylib"; path = "../../../../../opt/homebrew/Cellar/sfml/3.0.2/lib/libsfml-window.3.0.2.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -35,6 +64,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB2591C02F57D02B001F97BF /* libsfml-graphics.3.0.2.dylib in Frameworks */,
+				AB2591C22F57D02B001F97BF /* libsfml-window.3.0.2.dylib in Frameworks */,
+				AB2591BE2F57D02B001F97BF /* libsfml-audio.3.0.2.dylib in Frameworks */,
+				AB2591BC2F57D02B001F97BF /* libsfml-system.3.0.2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				AB2591AF2F57CFDD001F97BF /* Victoria */,
+				AB2591B72F57D02B001F97BF /* Frameworks */,
 				AB2591AE2F57CFDD001F97BF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,6 +91,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		AB2591B72F57D02B001F97BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB2591B92F57D02B001F97BF /* libsfml-audio.3.0.2.dylib */,
+				AB2591BA2F57D02B001F97BF /* libsfml-graphics.3.0.2.dylib */,
+				AB2591B82F57D02B001F97BF /* libsfml-system.3.0.2.dylib */,
+				AB2591BB2F57D02B001F97BF /* libsfml-window.3.0.2.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -67,6 +112,7 @@
 				AB2591A92F57CFDD001F97BF /* Sources */,
 				AB2591AA2F57CFDD001F97BF /* Frameworks */,
 				AB2591AB2F57CFDD001F97BF /* CopyFiles */,
+				AB2591C42F57D02B001F97BF /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -245,7 +291,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/sfml/3.0.2/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYSTEM_HEADER_SEARCH_PATHS = /opt/homebrew/include/;
 			};
 			name = Debug;
 		};
@@ -253,7 +304,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/sfml/3.0.2/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYSTEM_HEADER_SEARCH_PATHS = /opt/homebrew/include/;
 			};
 			name = Release;
 		};
