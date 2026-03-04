@@ -6,3 +6,4 @@
 #include "transform.hpp"
 #include "motion.hpp"
 #include "audio.hpp"
+#include "collisionbox.hpp"

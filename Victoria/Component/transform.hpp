@@ -6,5 +6,5 @@
 class Transform : public Component {
 public:
     Vec2 position;
-    Vec2 scale;
+    Vec2 scale = {1.0, 1.0};
 };
