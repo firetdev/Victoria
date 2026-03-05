@@ -21,8 +21,9 @@ inline std::map<std::string, std::function<std::shared_ptr<Scene>()>> registry;
 
 inline std::shared_ptr<Scene> currentScene = nullptr;
 
-inline void RegisterScene(const std::string& name, std::function<std::shared_ptr<Scene>()> creator) {
-    registry[name] = creator;
+inline void RegisterScene(std::function<std::shared_ptr<Scene>()> creator) {
+    auto scene = creator();
+    registry[scene->GetName()] = creator;
 }
 
 inline void ChangeScene(const std::string& name) {

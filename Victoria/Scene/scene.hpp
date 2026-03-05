@@ -38,6 +38,16 @@ public:
             entities.end()
         );
     }
+    
+    Entity* GetEntityByName(const std::string& searchName) {
+        for (auto& e : entities) {
+            if (e->GetName() == searchName)
+                return e.get();
+        }
+        return nullptr;
+    }
+    
+    std::string GetName() const { return name; }
 
     virtual void Update(float dt) {
         for (auto& e : entities)
