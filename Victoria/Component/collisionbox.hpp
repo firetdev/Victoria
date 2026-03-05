@@ -40,12 +40,12 @@ public:
         };
     }
 
-    bool IsColliding(const CollisionBox& other) const {
+    bool IsColliding(const CollisionBox* other) const {
         Vec2 aPos = GetWorldPosition();
         Vec2 aSize = GetWorldSize();
 
-        Vec2 bPos = other.GetWorldPosition();
-        Vec2 bSize = other.GetWorldSize();
+        Vec2 bPos = other->GetWorldPosition();
+        Vec2 bSize = other->GetWorldSize();
 
         return (
             aPos.x < bPos.x + bSize.x &&
@@ -55,12 +55,12 @@ public:
         );
     }
     
-    Vec2 GetPenetration(const CollisionBox& other) const {
+    Vec2 GetPenetration(const CollisionBox* other) const {
         Vec2 aPos = GetWorldPosition();
         Vec2 aSize = GetWorldSize();
 
-        Vec2 bPos = other.GetWorldPosition();
-        Vec2 bSize = other.GetWorldSize();
+        Vec2 bPos = other->GetWorldPosition();
+        Vec2 bSize = other->GetWorldSize();
 
         // Compute edges
         float aLeft = aPos.x;

@@ -50,6 +50,10 @@ inline void Update(float dt) {
     }
 }
 
+inline sf::RenderWindow& GetWindow() {
+    return currentScene->GetWindow();
+}
+
 inline std::shared_ptr<Scene> GetCurrentScene() {
     return currentScene;
 }

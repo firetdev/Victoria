@@ -14,9 +14,43 @@ protected:
             Victoria::QueueSceneChange("MainScene2");
         
         auto pCollider = owner->GetComponent<CollisionBox>();
-        auto tCollider = Victoria::GetCurrentScene()->GetEntityByName("target")->GetComponent<CollisionBox>();
-        if (pCollider->IsColliding(*tCollider))
-            owner->GetComponent<Transform>()->position += pCollider->GetPenetration(*tCollider);
+        auto tCollider = Victoria::GetCurrentScene()->GetEntity("target")->GetComponent<CollisionBox>();
+        if (pCollider->IsColliding(tCollider))
+            owner->GetComponent<Transform>()->position += pCollider->GetPenetration(tCollider);
+    }
+};
+
+class Player : public Entity {
+public:
+    Player(std::string name) : Entity(name) {}
+    
+    void Start() override {
+        AddComponent<Transform>();
+        AddComponent<Motion>();
+        GetComponent<Motion>()->retain = 0.2;
+        AddComponent<CollisionBox>();
+        AddComponent<PlayerScript>();
+        
+        auto pCollider = GetComponent<CollisionBox>();
+        pCollider->position = {0, 0};
+        pCollider->size = {64, 64};
+        AddComponent<Sprite>("player.png", Victoria::GetWindow());
+    }
+};
+
+class Target : public Entity {
+public:
+    Target(std::string name) : Entity(name) {}
+    
+    void Start() override {
+        AddComponent<Transform>();
+        GetComponent<Transform>()->position = {200, 200};
+        AddComponent<CollisionBox>();
+        
+        auto tCollider = GetComponent<CollisionBox>();
+        tCollider->position = {0, 0};
+        tCollider->size = {64, 64};
+        AddComponent<Sprite>("player.png", Victoria::GetWindow());
     }
 };
 
@@ -24,33 +58,9 @@ class MainScene : public Scene {
 public:
     MainScene(std::string n, sf::RenderWindow& win) : Scene(n, win) {}
     
-    Entity* player = nullptr;
-    Entity* target = nullptr;
-    CollisionBox* pCollider = nullptr;
-    CollisionBox* tCollider = nullptr;
-    
     void Start() override {
-        player = AddEntity(std::make_unique<Entity>("player"));
-        target = AddEntity(std::make_unique<Entity>("target"));
-        
-        player->AddComponent<Transform>();
-        player->AddComponent<Motion>();
-        player->GetComponent<Motion>()->retain = 0.2;
-        player->AddComponent<CollisionBox>();
-        player->AddComponent<PlayerScript>();
-        
-        pCollider = player->GetComponent<CollisionBox>();
-        pCollider->position = {0, 0};
-        pCollider->size = {64, 64};
-        player->AddComponent<Sprite>("player.png", window);
-        
-        target->AddComponent<Transform>();
-        target->GetComponent<Transform>()->position = {200, 200};
-        target->AddComponent<CollisionBox>();
-        tCollider = target->GetComponent<CollisionBox>();
-        tCollider->position = {0, 0};
-        tCollider->size = {64, 64};
-        target->AddComponent<Sprite>("player.png", window);
+        AddEntity(std::make_unique<Player>("player"));
+        AddEntity(std::make_unique<Target>("target"));
     }
 };
 
@@ -58,34 +68,12 @@ class MainScene2 : public Scene {
 public:
     MainScene2(std::string n, sf::RenderWindow& win) : Scene(n, win) {}
     
-    Entity* player = nullptr;
-    Entity* target = nullptr;
-    CollisionBox* pCollider = nullptr;
-    CollisionBox* tCollider = nullptr;
-    
     void Start() override {
-        player = AddEntity(std::make_unique<Entity>("player"));
-        target = AddEntity(std::make_unique<Entity>("target"));
-
-        player->AddComponent<Transform>();
-        player->AddComponent<Motion>();
-        player->GetComponent<Motion>()->retain = 0.2;
-        player->AddComponent<CollisionBox>();
-        player->AddComponent<PlayerScript>();
+        AddEntity(std::make_unique<Player>("player"));
+        AddEntity(std::make_unique<Target>("target"));
         
-        pCollider = player->GetComponent<CollisionBox>();
-        pCollider->position = {0, 0};
-        pCollider->size = {128, 128};
-        player->AddComponent<Sprite>("player.png", window);
-        player->GetComponent<Sprite>()->SetScale({2.0, 2.0});
-        
-        target->AddComponent<Transform>();
-        target->GetComponent<Transform>()->position = {200, 200};
-        target->AddComponent<CollisionBox>();
-        tCollider = target->GetComponent<CollisionBox>();
-        tCollider->position = {0, 0};
-        tCollider->size = {64, 64};
-        target->AddComponent<Sprite>("player.png", window);
+        GetEntity("player")->GetComponent<CollisionBox>()->size = {128, 128};
+        GetEntity("player")->GetComponent<Sprite>()->scale = {2, 2};
     }
 };
 

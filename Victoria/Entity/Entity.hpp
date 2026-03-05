@@ -1,5 +1,6 @@
 #pragma once
 
+#include <SFML/Graphics.hpp>
 #include <vector>
 #include <memory>
 #include <type_traits>
@@ -23,6 +24,7 @@ public:
     
     int GetId() const { return id; }
     void SetId(int newId) { id = newId; }
+    
     std::string GetName() const { return name; }
     void SetName(const std::string& newName) { name = newName; }
 
@@ -64,4 +66,6 @@ public:
         for (auto& c : components)
             c->Update(dt);
     }
+    
+    virtual void Start() {}
 };

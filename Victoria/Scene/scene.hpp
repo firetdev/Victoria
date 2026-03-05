@@ -20,6 +20,7 @@ public:
     Entity* AddEntity(std::unique_ptr<Entity> entity) {
         Entity* ptr = entity.get();
         entities.push_back(std::move(entity));
+        ptr->Start();
         return ptr;
     }
 
@@ -39,15 +40,17 @@ public:
         );
     }
     
-    Entity* GetEntityByName(const std::string& searchName) {
+    Entity* GetEntity(const std::string& searchName) {
         for (auto& e : entities) {
             if (e->GetName() == searchName)
                 return e.get();
         }
+        std::cerr << "No entity with name \"" << searchName << "\" exists" << std::endl;
         return nullptr;
     }
     
     std::string GetName() const { return name; }
+    sf::RenderWindow& GetWindow() { return window; }
 
     virtual void Update(float dt) {
         for (auto& e : entities)
