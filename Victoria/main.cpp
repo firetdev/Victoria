@@ -30,11 +30,16 @@ public:
         GetComponent<Motion>()->retain = 0.2;
         AddComponent<CollisionBox>();
         AddComponent<PlayerScript>();
+        AddComponent<Sprite>("player.png", Victoria::GetWindow());
+        AddComponent<Camera>(Victoria::GetWindow());
+        if (Victoria::GetCurrentScene()->GetName() != "MainScene2")
+            GetComponent<Camera>()->SetOffset({32, 32});
+        else
+            GetComponent<Camera>()->SetOffset({64, 64});
         
         auto pCollider = GetComponent<CollisionBox>();
         pCollider->position = {0, 0};
         pCollider->size = {64, 64};
-        AddComponent<Sprite>("player.png", Victoria::GetWindow());
     }
 };
 

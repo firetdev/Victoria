@@ -8,3 +8,4 @@
 #include "audio.hpp"
 #include "collisionbox.hpp"
 #include "sprite.hpp"
+#include "camera.hpp"
